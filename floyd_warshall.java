@@ -35,13 +35,12 @@ public class floyd_warshall {
 		for (int k = 0; k < NoOfNodes; k++) {
 			for (int i = 0; i < NoOfNodes; i++) {
 				for (int j = 0; j < NoOfNodes; j++) {
-					// to keep track.;
+				
 					if (M[i][k] + M[k][j] < M[i][j]) {
 						M[i][j] = M[i][k] + M[k][j];
 						DistanceMatrix[i][j] = k;
 					}
-					// or not to keep track.
-					//M[i][j] = min(M[i][j], M[i][k] + M[k][j]);
+				
 				}
 			}
 		}
