@@ -2,3 +2,27 @@ Suppose we have a input file around 8 billion integers
 We need to check which integer is not resent in file, efficiently
 
 MEmory Constraint :  1 GB memory
+
+
+Algorithm:
+We have 16 billion bits
+MAp all the integers possible
+
+Create bitb vector of 8 billion size
+Initialize BV with all zeroes
+Scan, put BV[index] =1 if Inteegr found
+Scan again to find first zero
+
+byte[] sample =new byte[0xFFFFFF/16];
+
+Scanner inRead= new Scanner(new FileReader("abc.txt"));
+while(inRead.hasNextInt())
+{
+  int x=inRead.nextInt();
+  sample[n/16]=1 <<(n%16);
+}
+
+And following up with that,
+
+Scan and return zero ones
+
