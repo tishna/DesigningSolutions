@@ -1,0 +1,35 @@
+Suppose you maintain stock exchanges of around 10,000 companies  [open/ high/low/closing]
+
+You need to monitor these at end of the day
+
+Feed is delivered once per trading day in CSV
+
+Solution:
+
+Store in text file/ database or XML
+If you keep data in text files:
+    Difficult to manage and update
+    Hard to query
+    Keeping unorganized text files - inefficient data model
+
+Use DB:
+  Logical storage of data
+  An easy way of doing 'query processing'
+  Easy to maintain
+  Roll back, back up and secusity is easy
+  
+  
+<root>
+<date value="08-27-2016">
+  <company name="AGZ">
+  <open>423.3</open>
+  <high>444.5</high>
+  <low>420.9</low>
+  <closing>33.3</closing>
+  
+  <company name="BNM">
+  <open>43.3</open>
+  <high>44.5</high>
+  <low>40.9</low>
+  <closing>43.1</closing>
+</root>
