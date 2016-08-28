@@ -1,0 +1,30 @@
+# GPS Application Algorithm
+# Reference to my blog:
+
+
+public void gpsNavigation()
+	{
+		// Queue data structure
+		Queue gpsQueue = new LinkedList();
+		
+		//Add the current nood (consider this as blue dot of Google Maps; Where you are standing)
+		gpsQueue.add(this.rootNode);
+	  
+	  // Then you might want to print that node 
+		
+		//Set it true- Visisted
+		rootNode.visited = true;
+		
+		
+		while(!gpsQueue.isEmpty()) {
+			Node node = (Node)gpsQueue.remove();
+			Node child=null;
+			while((child=getUnvisitedChildNode(node))!=null) {
+				child.visited=true;
+// Print child
+				gpsQueue.add(child);
+			}
+		}
+		// Then Clear visited property of nodes
+	
+	}
