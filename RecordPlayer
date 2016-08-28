@@ -1,0 +1,101 @@
+
+Please refer to my technical blog 'http://theglobaltechjournal.blogspot.com/', where I have explained this. 
+
+URL for this algo post: http://theglobaltechjournal.blogspot.com/2016/08/record-player-designing.html
+
+// Component of first layer A as per the blog post
+
+// Layer A has a public component CD Player
+public class CDPlayer 
+  {
+      //Members
+      private Playlist playList;
+      private CD cdOfPlayer;
+      
+      //Methods
+      public Playlist getPlaylist() 
+          { 
+            return playList;
+          }
+      public void setPlaylist(Playlist playListPassed) 
+          { 
+          this.playList = playListPassed;
+          }
+      public CD getCD() 
+          {
+          return cdOfPlayer;
+          }
+      public void setCD(CD c) 
+          {
+          this.cdOfPlayer = c;
+          }
+      public CDPlayer(Playlist playListPassed) 
+          {
+          this.playList = playListPassed;
+          }
+      public CDPlayer(CD c, Playlist p) 
+          {
+          }
+      public CDPlayer(CD c) 
+          {
+          this.cdOfPlayer = c;
+          }
+      public void playTrack(Song s) 
+          {
+          }
+}
+
+// Layer A has a public component CD
+// Class is visible to all classes everywhere.
+public class CompactDisc { }
+
+
+public class RecordPlayer 
+  {
+  private CDPlayer cdPlayer;
+  private User user;
+  private Set<CD> cdCollection;
+  private TrackSelector ts;
+
+      public RecordPlayer(CDPlayer cdPlayer, User user, Set<CD> cdCollection,TrackSelector ts) 
+          { }
+      public Song getCurrentTrack()
+        {
+          return ts.getCurrentSong();
+        }
+      public void processOneUser(User u) 
+      {
+      this.user = u;
+      }
+}
+
+
+// Layer B  has a public component PlayList
+// Class is visible to all classes everywhere.
+public class Playlist {
+  private Song track;
+  private Queue<Song> queue;
+  public Playlist(Song track, Queue<Song> queue)
+      { }
+  public Song getNextTrackToPlay()
+      {
+        return queue.peek(); }
+  public void queueUpTrack(Song s){ queue.add(s); }
+ }
+
+// Layer B has a public component Song
+// Class is visible to all classes everywhere.
+public class Song {
+private String songName;
+}
+
+// Layer A has a public component to selecttrack
+// Class is visible to all classes everywhere.
+public class SelectTrack {
+private Song currentSong;
+public SelectTrack(Song s) { currentSong=s; }
+public void setTrack(Song s) { currentSong = s; }
+public Song getCurrentSong() { return currentSong; }
+ }
+dUser(String name, long iD) { ... }
+}
