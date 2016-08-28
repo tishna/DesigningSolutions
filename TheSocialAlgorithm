@@ -1,0 +1,109 @@
+Designing data structure for some social network
+
+Obviously we will be using graphs, but lets see how
+1. Not all users on same machine
+2. They need to be linked via indexes - They could be linked/ could not be
+    A -> B -> C
+    C -> D
+    A -> F
+They can be distributed across machines
+
+class TheSocialGuy
+    {
+      TheSocialGuy[] friends;
+      String name;
+      String location;
+      String age;
+      // etc etc
+    }
+// On small scale: Finding connection between two people using breadth first search by starting with one person
+
+//-------------------------------------Implementing Algo for small scale social network -------------------
+public void searchingFriendsBFS()
+	{
+		// using Queue : friendsQueue data structure
+		Queue friendsQueue = new LinkedList();
+		
+		//Add the root node
+		friendsQueue.add(this.rootNode);
+		
+		//Print the node (The social guy)
+		printNode(this.rootNode);
+		
+		//Track tyhe visiting nodes
+		rootNode.visited = true;
+		
+		//Loop across the queue
+		while(!friendsQueue.isEmpty()) {
+			Node theSocialNode = (Node)friendsQueue.remove();
+			Node theChildNode=null;
+			
+			//Loop in the child nodes by getting unvisited ones
+			while((theChildNode=getUnvisitedChildNode(theSocialNode))!=null) {
+				theChildNode.visited=true;
+				printNode(theChildNode);
+				friendsQueue.add(theChildNode);
+			}
+		}
+		// Clear visited property of nodes
+		clearNodes();
+	}
+
+
+// On large scale:
+
+1. Look up for machine for a user id.
+2. Go to that particular machine
+3. Look up for the social person friend there
+
+
+// To optimize above algorithm for large scale implementation
+
+1. Reduce machine jumps
+2. Intelligent division of people on machines
+
+//Design the Server
+
+public class SocialServer
+{
+  //Has the list of machines
+  ArrayList<Machines> socialMachines = new ArrayList<Machine>();
+}
+
+//The machine; has the machine id and social guys data
+public class Machine
+{
+  public ArrayList<TheSocialGuy> people= new ArrayList<TheSocialGuy>();
+  public int machineIndex;
+}
+
+
+public class TheSocialGuy
+    {
+      private ArrayList< Integer> friends;
+      // id, machine id, server info 
+      // etc etc
+      
+      
+      public String getInfo()
+      {}
+      
+      public void setInfo(String i)
+      {}
+      
+      public int getIndex()
+      {}
+      
+      public int getMachineIdex()
+      {}
+      
+      public void addFriend(int index)
+      {}
+      
+      public Machine lookUp()
+      {}
+      
+      
+      
+      
+    }
