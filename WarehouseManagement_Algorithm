@@ -31,3 +31,19 @@ Lets design algorithm.
         }
         
         
+// Therecould be situation where box sizes are different
+// suppose number of items 56, box of sizes 5,5,10
+
+int noOfItems= 100;
+int boxes[] ={5,10,20};
+
+for(int i=0;i<boxes.length; i++)
+{
+ if(box[i]<=noOfItems)
+ {
+ count=noOfItems/box[i];
+ }
+ 
+ noOfItems-=count*box[i];
+ 
+}
