@@ -1,0 +1,33 @@
+# I was working for a Product based company a few months ago.
+# I was dealing witha records management client based in Jamaica and I implemented a EDRMS Automated solution for them
+
+This problem is not about the solution that I implemented but a general warehouse probem which every warehouse company might be facing. 
+I thought of making an algorithm with which they can place the records/ invesntory using the minimum racks
+
+
+If suppose we have n items to be placed in inventory boxes or n records to be placed on racks in warehouse
+and we want to place them with least number of racks or boxes possible. What do we do?
+Ofcourse if w have items around 10 or 20 we can manually calculate. But with bigb companies items are numerous.
+
+For understanding the problem in etter way, refer to my blog
+
+Lets design algorithm.
+
+ int countOFBox=1;
+        int spaceInBox = size;
+        for(int i=0; i<numberOfItems; i++)
+        {
+            if(spaceInBox - arrayOfItem[i] > 0)
+            {
+                spaceInBox -= arrayOfItem[i];
+                continue;
+            }
+            else
+            {
+                countOFBox++;
+                spaceInBox = size;
+                i--;
+            }
+        }
+        
+        
